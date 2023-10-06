@@ -1,12 +1,13 @@
 package models
 
 type UserFormatter struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
+	// ID   int    `json:"id"`
+	// Name string `json:"name"`
+	UUID string `json:"uuid"`
 	// Occupation string `json:"occupation"`
-	Email    string `json:"email"`
-	Token    string `json:"token"`
-	ImageURL string `json:"image_url"`
+	//Email    string `json:"email"`
+	Token string `json:"token"`
+	//ImageURL string `json:"image_url"`
 }
 
 type ProfileFormatter struct {
@@ -17,7 +18,9 @@ type ProfileFormatter struct {
 
 func FormatUser(user User, token string) UserFormatter {
 	formatter := UserFormatter{
-		Email: user.Email,
+		UUID: user.User_uuid,
+		// Name:  user.Name,
+		// Email: user.Email,
 		Token: token,
 	}
 

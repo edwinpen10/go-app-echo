@@ -77,7 +77,7 @@ func Login(c echo.Context) (err error) {
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := token.Claims.(jwt.MapClaims)
 	claims["uuid"] = user.User_uuid
-	claims["exp"] = jwt.NewNumericDate(time.Now().Add(time.Hour * 72))
+	claims["exp"] = jwt.NewNumericDate(time.Now().Add(time.Hour * 2))
 
 	// Generate encoded token and send it as response.
 	t, err := token.SignedString([]byte(os.Getenv("JWT_SECRET")))
